@@ -11,7 +11,7 @@ It generates an anonymized version of the text and a mapping vocabulary of the o
 3.  **Consistent Mapping**: A mapping vocabulary is maintained throughout the process. This ensures that 
     the same entity is replaced with the same placeholder (e.g., "John Smith" is always replaced with "PERSON_1").
 4.  **Large files**: Large files are split into smaller chunks to be anonymized.
-4.  **Output**: The application generates two files:
+5**Output**: The application generates two files:
     *   `data/anonymized/{original_file_name}.anonymized.md`: The anonymized Markdown text with all PII replaced by placeholders.
     *   `data/mappings/{original_file_name}.mapping.json`: A JSON file containing the one-to-one mapping of the original PII to the anonymized placeholders.
 
@@ -21,8 +21,7 @@ It generates an anonymized version of the text and a mapping vocabulary of the o
 - LLM recognizes and anonymizes text directly from the PDF. But LLM can't edit the PDF file directly.
   So, the Anonymizer saves the anonymized text only as a text.
 - Anonymized text and mapping are stored separately in different directories because of **security** reasons.
-- The anonymized file name compounded as the original file name and with `.anonymized` suffix and the mapping file name with `.mapping` suffix for easy identification and security reasons.
-- The anonymized text is stored in Markdown format so it saves the document structure information.
+- The anonymized file name is constructed from the original file name with an `.anonymized` suffix, and the mapping file name with a `.mapping` suffix, for easy identification and security reasons.- The anonymized text is stored in Markdown format so it saves the document structure information.
 - **Large files** are split into smaller chunks to be anonymized since LLMs can't handle large texts in one go. 
 - **Mapping** is needed to make anonymization consistent between anonymized text chunks. Mapping also used to deanonymize the text.
 
@@ -61,7 +60,7 @@ It generates an anonymized version of the text and a mapping vocabulary of the o
 - the `gemini-2.5-flash-lite` model performs well only on small files!
 
 ### Ollama models:
-Using Ollama models you perform anonymization locally for free.
+Using Ollama models you can perform anonymization locally for free.
 See a [list of available models](https://ollama.com/search).
 If you are using Ollama, you need to download the models you want to use. 
 You can do this from the command line. For example, to download the `phi` model:

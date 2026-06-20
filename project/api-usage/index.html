@@ -18,7 +18,7 @@
         <link rel="prev" href="../cli-usage/">
       
       
-        <link rel="next" href="../architecture/">
+        <link rel="next" href="../api-reference/">
       
       
         
@@ -54,6 +54,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -478,14 +480,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../101/where-needed/" class="md-nav__link">
+      <a href="../../101/history/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Where is it Needed?
+    History
   
 
     
@@ -770,15 +772,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-anonymize_file" class="md-nav__link">
+  <a href="#anonymize_file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. anonymize_file
+        anonymize_file
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. anonymize_file">
+    <nav class="md-nav" aria-label="anonymize_file">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -820,15 +822,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-deanonymize_file" class="md-nav__link">
+  <a href="#deanonymize_file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. deanonymize_file
+        deanonymize_file
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. deanonymize_file">
+    <nav class="md-nav" aria-label="deanonymize_file">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -870,15 +872,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-configuration-prompts" class="md-nav__link">
+  <a href="#configuration-prompts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Configuration &amp; Prompts
+        Configuration &amp; Prompts
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. Configuration &amp; Prompts">
+    <nav class="md-nav" aria-label="Configuration &amp; Prompts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -909,10 +911,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-end-to-end-code-example" class="md-nav__link">
+  <a href="#end-to-end-code-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. End-to-End Code Example
+        End-to-End Code Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="End-to-End Code Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-caching-and-full-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced: Caching and Full Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
       
     </span>
   </a>
@@ -923,6 +953,90 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference (auto)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recipes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipes & Common Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -990,15 +1104,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-anonymize_file" class="md-nav__link">
+  <a href="#anonymize_file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. anonymize_file
+        anonymize_file
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. anonymize_file">
+    <nav class="md-nav" aria-label="anonymize_file">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1040,15 +1154,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-deanonymize_file" class="md-nav__link">
+  <a href="#deanonymize_file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. deanonymize_file
+        deanonymize_file
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. deanonymize_file">
+    <nav class="md-nav" aria-label="deanonymize_file">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1090,15 +1204,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-configuration-prompts" class="md-nav__link">
+  <a href="#configuration-prompts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Configuration &amp; Prompts
+        Configuration &amp; Prompts
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. Configuration &amp; Prompts">
+    <nav class="md-nav" aria-label="Configuration &amp; Prompts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1129,10 +1243,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-end-to-end-code-example" class="md-nav__link">
+  <a href="#end-to-end-code-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. End-to-End Code Example
+        End-to-End Code Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="End-to-End Code Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-caching-and-full-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced: Caching and Full Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
       
     </span>
   </a>
@@ -1162,7 +1304,7 @@
 <h1 id="programmatic-api-sdk-reference">Programmatic API &amp; SDK Reference<a class="headerlink" href="#programmatic-api-sdk-reference" title="Permanent link">&para;</a></h1>
 <p>Developers can integrate <code>pdf-anonymizer-core</code> directly into their Python applications (e.g. data processing pipelines, web apps, or custom AI agent loops).</p>
 <hr />
-<h2 id="1-anonymize_file">1. <code>anonymize_file</code><a class="headerlink" href="#1-anonymize_file" title="Permanent link">&para;</a></h2>
+<h2 id="anonymize_file"><code>anonymize_file</code><a class="headerlink" href="#anonymize_file" title="Permanent link">&para;</a></h2>
 <p>The <code>anonymize_file</code> function reads, extracts, chunks, and masks a file, returning the final anonymized string and the mapped PII dictionary.</p>
 <h3 id="import-signature">Import Signature<a class="headerlink" href="#import-signature" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pdf_anonymizer_core.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">anonymize_file</span>
@@ -1179,23 +1321,23 @@
 <li><code>mapping</code> (<code>dict[str, str]</code>): A dictionary mapping original entities to their assigned placeholders.</li>
 </ul>
 <hr />
-<h2 id="2-deanonymize_file">2. <code>deanonymize_file</code><a class="headerlink" href="#2-deanonymize_file" title="Permanent link">&para;</a></h2>
-<p>The <code>deanonymize_file</code> function reads an anonymized file, loads the entity placeholders dictionary from a JSON file, replaces placeholders with their original values, and returns the result.</p>
+<h2 id="deanonymize_file"><code>deanonymize_file</code><a class="headerlink" href="#deanonymize_file" title="Permanent link">&para;</a></h2>
+<p>The <code>deanonymize_file</code> function reads an anonymized file, loads the mapping (auto-detecting placeholder→original or legacy direction), replaces placeholders (including <code>.v_N</code> variants), writes the restored document to the conventional output directory (<code>data/deanonymized/</code>), writes a statistics JSON file (<code>data/stats/</code>), and returns the two output file paths.</p>
 <h3 id="import-signature_1">Import Signature<a class="headerlink" href="#import-signature_1" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pdf_anonymizer_core.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">deanonymize_file</span>
 </span></code></pre></div>
 <h3 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>anonymized_file</code> (<code>str</code>): Path to the markdown or text file that has placeholders.</li>
-<li><code>mapping_file</code> (<code>str</code>): Path to the JSON mapping file containing the original entity-to-placeholder mapping dictionary.</li>
+<li><code>anonymized_file_path</code> (<code>str</code>): Path to the markdown or text file that has placeholders.</li>
+<li><code>mapping_file_path</code> (<code>str</code>): Path to the JSON mapping file containing the original entity-to-placeholder mapping dictionary.</li>
 </ul>
 <h3 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>deanonymized_text</code> (<code>str</code>): The restored text containing original PII.</li>
-<li><code>stats</code> (<code>dict</code>): Processing metadata, including entity counts.</li>
+<li><code>deanonymized_file_path</code> (<code>str</code>): Path to the written restored document.</li>
+<li><code>stats_file_path</code> (<code>str</code>): Path to the written deanonymization statistics JSON file.</li>
 </ul>
 <hr />
-<h2 id="3-configuration-prompts">3. Configuration &amp; Prompts<a class="headerlink" href="#3-configuration-prompts" title="Permanent link">&para;</a></h2>
+<h2 id="configuration-prompts">Configuration &amp; Prompts<a class="headerlink" href="#configuration-prompts" title="Permanent link">&para;</a></h2>
 <p>The core library exposes configuration constants, model structures, and prompts in <code>conf</code> and <code>prompts</code> modules.</p>
 <h3 id="loading-models-configuration">Loading Models &amp; Configuration<a class="headerlink" href="#loading-models-configuration" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pdf_anonymizer_core.conf</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -1219,7 +1361,7 @@
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">prompt_text</span> <span class="o">=</span> <span class="n">detailed</span><span class="o">.</span><span class="n">prompt_template</span>
 </span></code></pre></div>
 <hr />
-<h2 id="4-end-to-end-code-example">4. End-to-End Code Example<a class="headerlink" href="#4-end-to-end-code-example" title="Permanent link">&para;</a></h2>
+<h2 id="end-to-end-code-example">End-to-End Code Example<a class="headerlink" href="#end-to-end-code-example" title="Permanent link">&para;</a></h2>
 <p>Here is a complete script demonstrating how to programmatically anonymize a document, print the details, and then programmatically restore the text.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
@@ -1257,15 +1399,38 @@
 </span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>
 </span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="c1"># 3. Deanonymize programmatically</span>
 </span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Restoring file from </span><span class="si">{</span><span class="n">anonymized_path</span><span class="si">}</span><span class="s2"> using </span><span class="si">{</span><span class="n">mapping_path</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
-</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="n">restored_text</span><span class="p">,</span> <span class="n">stats</span> <span class="o">=</span> <span class="n">deanonymize_file</span><span class="p">(</span>
-</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>    <span class="n">anonymized_file</span><span class="o">=</span><span class="n">anonymized_path</span><span class="p">,</span>
-</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>    <span class="n">mapping_file</span><span class="o">=</span><span class="n">mapping_path</span>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="n">deanonymized_file_path</span><span class="p">,</span> <span class="n">stats_file_path</span> <span class="o">=</span> <span class="n">deanonymize_file</span><span class="p">(</span>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>    <span class="n">anonymized_path</span><span class="p">,</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>    <span class="n">mapping_path</span><span class="p">,</span>
 </span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="p">)</span>
 </span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>
-</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Restored Text Output ---&quot;</span><span class="p">)</span>
-</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="nb">print</span><span class="p">(</span><span class="n">restored_text</span><span class="p">[:</span><span class="mi">500</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">...&quot;</span><span class="p">)</span>
-</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stats:&quot;</span><span class="p">,</span> <span class="n">stats</span><span class="p">)</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deanonymized file saved to:&quot;</span><span class="p">,</span> <span class="n">deanonymized_file_path</span><span class="p">)</span>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stats file saved to:&quot;</span><span class="p">,</span> <span class="n">stats_file_path</span><span class="p">)</span>
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a><span class="c1"># If you need the text content in memory:</span>
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">deanonymized_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>    <span class="n">restored_text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Restored Text Output (first 500 chars) ---&quot;</span><span class="p">)</span>
+</span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a><span class="nb">print</span><span class="p">(</span><span class="n">restored_text</span><span class="p">[:</span><span class="mi">500</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">...&quot;</span><span class="p">)</span>
 </span></code></pre></div>
+<p>You can also pass a custom list for <code>anonymized_entities</code> or supply your own <code>regex_patterns</code> dict for the first-stage NER.</p>
+<h3 id="advanced-caching-and-full-control">Advanced: Caching and Full Control<a class="headerlink" href="#advanced-caching-and-full-control" title="Permanent link">&para;</a></h3>
+<p>The library caches LLM responses by default (in <code>data/cache/llm_responses.json</code>). You can control it directly:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pdf_anonymizer_core.llm_provider</span><span class="w"> </span><span class="kn">import</span> <span class="n">configure_cache</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">configure_cache</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache_dir</span><span class="o">=</span><span class="s2">&quot;my-cache&quot;</span><span class="p">,</span> <span class="n">cache_file</span><span class="o">=</span><span class="s2">&quot;responses.json&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>For the complete <code>anonymize_file</code> signature (including <code>chunk_overlap</code>, <code>regex_patterns</code>, <code>max_retries</code>, etc.) see the <a href="../api-reference/">auto-generated API Reference</a> or the Recipes page.</p>
+<hr />
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><a href="../recipes/">Recipes &amp; Common Workflows</a></strong> — practical SDK examples (local Ollama, external LLM round-trips, profiles, custom regex, cache control, large files).</li>
+<li><strong><a href="../cli-usage/">CLI Reference</a></strong> — the command-line surface that wraps the same core functions.</li>
+<li><strong><a href="../api-reference/">API Reference (auto)</a></strong> — auto-generated detailed signatures.</li>
+<li><strong><a href="../architecture/">Architecture Design</a></strong> — internals behind the functions documented here.</li>
+<li><strong><a href="../installation/">Installation &amp; Setup</a></strong> — how to set up the environment for the SDK.</li>
+<li><strong><a href="../troubleshooting/">Troubleshooting</a></strong> — help with common SDK and CLI issues.</li>
+<li><strong><a href="../architecture/">Architecture Design</a></strong> — how the anonymization pipeline, consolidation, and deanonymization actually work internally.</li>
+</ul>
 
 
 

@@ -1028,6 +1028,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#native-pdf-write" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Native PDF write
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#semantic-chunking" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1197,6 +1208,17 @@
     <span class="md-ellipsis">
       
         Table path (CSV / Excel)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#word-path-docx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Word path (DOCX)
       
     </span>
   </a>
@@ -1346,6 +1368,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#native-pdf-write" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Native PDF write
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#semantic-chunking" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1521,6 +1554,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#word-path-docx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Word path (DOCX)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1653,8 +1697,18 @@
 <h3 id="text-extraction-pdf-conversion">Text Extraction &amp; PDF Conversion<a class="headerlink" href="#text-extraction-pdf-conversion" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Instead of traditional OCR or layout-unaware PDF parsing, the project uses <code>pymupdf4llm</code> to convert PDF files into clean, readable <strong>Markdown</strong>. This retains tables, headings, and lists in a structured text layout that LLMs can parse with higher accuracy.</li>
+<li>A PDF with pages and no text layer is a hard error. <code>--ocr</code> runs Tesseract through PyMuPDF and writes word boxes to <code>*.anonymized.layout.json</code> so a later native-PDF redact pass can use the same spans. OCR is slower and less accurate than a real text layer.</li>
 <li>For Markdown and Text files, standard file reads are executed.</li>
 <li>CSV and Excel skip this loader. See <a href="#table-path-csv--excel">Table path</a>.</li>
+<li>Word <code>.docx</code> skips this loader. See <a href="#word-path-docx">Word path</a>.</li>
+</ul>
+<h3 id="native-pdf-write">Native PDF write<a class="headerlink" href="#native-pdf-write" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Markdown remains the default output for a PDF input.</li>
+<li><code>--output-pdf</code> opens the source with PyMuPDF, finds each original with <code>search_for</code>, adds a redaction annotation, then <code>apply_redactions</code>. That excises the old glyphs from the content stream. It is not an overlay-only black box.</li>
+<li>The reversible mode writes the stand-in (<code>EMAIL_1</code>) into the redaction. <code>--redact</code> fills the box black and does not write a stand-in. Deanonymize cannot restore a redacted page.</li>
+<li>Every native write sanitizes <code>/Info</code>, XMP, embedded files, leftover annotations, and optional-content groups, and saves with <code>garbage=4</code> (no incremental <code>/Prev</code> history).</li>
+<li>Rasterize-and-rebuild is the scan fallback (item 14), not the digital default. Images, form fields, and some vector drawings can still leak. This is not a legal de-identification certificate.</li>
 </ul>
 <h3 id="semantic-chunking">Semantic Chunking<a class="headerlink" href="#semantic-chunking" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1751,6 +1805,16 @@
 <li><strong>Review flatten</strong> (<code>v1 | v2 | …</code>, blank line after every row) is what <code>anonymize_file</code> returns for tables. <code>verify</code> and <code>report</code> score that flatten, not raw CSV bytes.</li>
 <li>Excel writes cached values only (no formulas). Charts, comments, headers/footers, validation lists, defined names, and hyperlinks are left as-is.</li>
 <li>This is still cell-level pseudonymization. It is not <em>k</em>-anonymity.</li>
+</ul>
+<h3 id="word-path-docx">Word path (DOCX)<a class="headerlink" href="#word-path-docx" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>.docx</code> never enters <code>load_and_extract_text_from_file</code>. <code>word.load_docx</code> walks visible paragraph text in the main document, headers, footers, footnotes, endnotes, comments, and glossary parts; apply writes those same nodes. Field codes (<code>w:instrText</code>) and external hyperlink targets are separate blocks.</li>
+<li><strong>Regex</strong> runs per block on the concatenated visible text of each paragraph (runs are joined so <code>jane</code> + <code>@</code> + <code>acme.com</code> is one email).</li>
+<li><strong>LLM</strong> sees the part-wise flatten. A hit is kept only if <code>locate_spans</code> finds it in some block.</li>
+<li><strong>Apply</strong> is <code>replace_entities</code> on each block's <code>search_text</code> with the same <code>entity["text"]</code> list the text engine uses. Replacement text is written into the first <code>w:t</code> of the paragraph; later runs are cleared. Intra-run formatting after the first run is not preserved.</li>
+<li><strong>Review flatten</strong> (<code># Part: /word/document.xml</code> then paragraphs) is what <code>anonymize_file</code> returns for Word. <code>verify</code> and <code>report</code> score that flatten, not the ZIP bytes.</li>
+<li>Tracked-change deletions (<code>w:del</code>) are skipped. Images, alt text, core properties (author), charts, and embedded objects are left as-is.</li>
+<li><code>.doc</code>, <code>.docm</code>, <code>.dot</code>, <code>.dotm</code>, and <code>.dotx</code> are rejected.</li>
 </ul>
 <hr />
 <h2 id="reversibility-the-mapping-engine">Reversibility &amp; The Mapping Engine<a class="headerlink" href="#reversibility-the-mapping-engine" title="Permanent link">&para;</a></h2>
